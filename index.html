@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071a2b">
+  <meta name="description" content="闪电快充天津充电站统一导航页">
+  <meta name="format-detection" content="telephone=no">
+  <title>闪电快充｜充电站导航</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="stations.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">⚡</span>
+        <span>闪电快充</span>
+      </div>
+      <h1>天津充电站导航</h1>
+      <p>请选择您要前往的充电站</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="search-panel" aria-label="站点搜索">
+      <label class="search-label" for="station-search">搜索充电站</label>
+      <div class="search-box">
+        <span class="search-box__icon" aria-hidden="true"></span>
+        <input
+          id="station-search"
+          type="search"
+          inputmode="search"
+          enterkeyhint="search"
+          autocomplete="off"
+          placeholder="搜索站名、区域或地址"
+          aria-describedby="search-help station-count"
+        >
+      </div>
+      <p id="search-help" class="search-help">例如：西青、南站、友谊路</p>
+    </section>
+
+    <div class="list-heading">
+      <h2>全部站点</h2>
+      <p id="station-count" class="station-count" aria-live="polite">正在加载站点…</p>
+    </div>
+
+    <section id="station-list" class="station-list" aria-label="充电站列表"></section>
+
+    <section id="empty-state" class="empty-state" hidden>
+      <div class="empty-state__icon" aria-hidden="true">⌕</div>
+      <h2>没有找到对应站点</h2>
+      <p>请换一个站名、区域或地址试试</p>
+      <button id="clear-search" type="button">清除搜索</button>
+    </section>
+
+    <noscript>
+      <p class="noscript">页面需要开启 JavaScript 才能显示站点，请在浏览器设置中开启后重试。</p>
+    </noscript>
+  </main>
+
+  <footer class="footer">
+    <p>导航信息以高德地图实际显示为准</p>
+  </footer>
+</body>
+</html>
