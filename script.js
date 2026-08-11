@@ -1,12 +1,113 @@
 (function () {
   "use strict";
 
+  var SITE_URL = "https://dream-ar.github.io/shandian-charging-navigation/";
+  var SMS_BODY = "闪电快充天津充电站导航：\n\n"
+    + SITE_URL
+    + "\n\n点击链接即可选择充电站并进行导航。";
   var stations = Array.isArray(window.STATIONS) ? window.STATIONS : [];
   var searchInput = document.getElementById("station-search");
   var stationList = document.getElementById("station-list");
   var stationCount = document.getElementById("station-count");
   var emptyState = document.getElementById("empty-state");
   var clearSearchButton = document.getElementById("clear-search");
+  var smsShareButton = document.getElementById("sms-share");
+  var copyLinkButton = document.getElementById("copy-link");
+  var shareStatus = document.getElementById("share-status");
+
+  function isIOS(userAgent) {
+    return /iPad|iPhone|iPod/i.test(userAgent || "");
+  }
+
+  function buildSmsUri(userAgent) {
+    var separator = isIOS(userAgent) ? "&" : "?";
+    return "sms:" + separator + "body=" + encodeURIComponent(SMS_BODY);
+  }
+
+  function showShareStatus(message, state) {
+    shareStatus.textContent = message;
+    if (state) {
+      shareStatus.dataset.state = state;
+    } else {
+      shareStatus.removeAttribute("data-state");
+    }
+  }
+
+  function copyWithFallback() {
+    var textArea = document.createElement("textarea");
+    var copied = false;
+
+    textArea.value = SITE_URL;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.select();
+    textArea.setSelectionRange(0, textArea.value.length);
+
+    try {
+      copied = document.execCommand("copy");
+    } catch (error) {
+      copied = false;
+    }
+
+    document.body.removeChild(textArea);
+    return copied;
+  }
+
+  function copyNavigationLink() {
+    function reportCopyResult(copied) {
+      showShareStatus(
+        copied ? "导航链接已复制" : "请手动复制导航链接：" + SITE_URL,
+        copied ? "" : "error"
+      );
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(SITE_URL).then(function () {
+        reportCopyResult(true);
+      }, function () {
+        reportCopyResult(copyWithFallback());
+      });
+      return;
+    }
+
+    reportCopyResult(copyWithFallback());
+  }
+
+  function openSmsApp() {
+    var pageWasHidden = false;
+    var fallbackTimer;
+
+    function detectPageHidden() {
+      if (document.hidden) {
+        pageWasHidden = true;
+      }
+    }
+
+    function cleanupDetection() {
+      document.removeEventListener("visibilitychange", detectPageHidden);
+      window.removeEventListener("pagehide", detectPageHidden);
+    }
+
+    document.addEventListener("visibilitychange", detectPageHidden);
+    window.addEventListener("pagehide", detectPageHidden);
+
+    fallbackTimer = window.setTimeout(function () {
+      cleanupDetection();
+      if (!pageWasHidden) {
+        showShareStatus("请复制导航链接后通过短信发送", "error");
+      }
+    }, 1800);
+
+    try {
+      window.location.href = buildSmsUri(navigator.userAgent);
+    } catch (error) {
+      window.clearTimeout(fallbackTimer);
+      cleanupDetection();
+      showShareStatus("请复制导航链接后通过短信发送", "error");
+    }
+  }
 
   function normalize(value) {
     return String(value || "")
@@ -102,4 +203,6 @@
     filterStations();
     searchInput.focus();
   });
+  smsShareButton.addEventListener("click", openSmsApp);
+  copyLinkButton.addEventListener("click", copyNavigationLink);
 }());

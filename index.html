@@ -7,9 +7,9 @@
   <meta name="description" content="闪电快充天津充电站统一导航页">
   <meta name="format-detection" content="telephone=no">
   <title>闪电快充｜充电站导航</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260811-share">
   <script src="stations.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=20260811-share" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -58,6 +58,18 @@
     <noscript>
       <p class="noscript">页面需要开启 JavaScript 才能显示站点，请在浏览器设置中开启后重试。</p>
     </noscript>
+
+    <section class="share-panel" aria-labelledby="share-title">
+      <div class="share-panel__heading">
+        <h2 id="share-title">分享导航页</h2>
+        <p>把固定导航网址发送给其他司机</p>
+      </div>
+      <div class="share-actions">
+        <button id="sms-share" class="share-button share-button--primary" type="button">短信发送</button>
+        <button id="copy-link" class="share-button share-button--secondary" type="button">复制链接</button>
+      </div>
+      <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
+    </section>
   </main>
 
   <footer class="footer">
