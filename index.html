@@ -7,9 +7,9 @@
   <meta name="description" content="闪电快充天津充电站统一导航页">
   <meta name="format-detection" content="telephone=no">
   <title>闪电快充｜充电站导航</title>
-  <link rel="stylesheet" href="style.css?v=20260811-share">
+  <link rel="stylesheet" href="style.css?v=20260811-coupon">
   <script src="stations.js" defer></script>
-  <script src="script.js?v=20260811-share" defer></script>
+  <script src="script.js?v=20260811-coupon" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -39,6 +39,66 @@
         >
       </div>
       <p id="search-help" class="search-help">例如：西青、南站、友谊路</p>
+    </section>
+
+    <section class="coupon-panel" aria-label="优惠券使用说明">
+      <button
+        id="coupon-toggle"
+        class="coupon-summary"
+        type="button"
+        aria-expanded="false"
+        aria-controls="coupon-rules"
+      >
+        <span class="coupon-summary__icon" aria-hidden="true">🎟</span>
+        <span class="coupon-summary__copy">
+          <strong>满10减5</strong><span aria-hidden="true">｜</span><strong>每天限用1次</strong><span aria-hidden="true">｜</span><strong>绑定后30天有效</strong><span aria-hidden="true">｜</span><span class="coupon-summary__action"><span id="coupon-toggle-text">查看规则</span> <span class="coupon-summary__arrow" aria-hidden="true">›</span></span>
+        </span>
+      </button>
+
+      <div id="coupon-rules" class="coupon-rules" hidden>
+        <h2>优惠券使用说明</h2>
+
+        <section class="coupon-rule-item">
+          <h3>券类型：</h3>
+          <p>满减优惠券</p>
+        </section>
+
+        <section class="coupon-rule-item">
+          <h3>优惠规则：</h3>
+          <p>单笔充电金额满10元可使用1张优惠券，每张优惠券抵扣5元，单张最高抵扣5元。</p>
+        </section>
+
+        <section class="coupon-rule-item">
+          <h3>使用限制：</h3>
+          <p>每笔订单限用1张优惠券，每位用户每天限用1次。</p>
+        </section>
+
+        <section class="coupon-rule-item">
+          <h3>有效期：</h3>
+          <p>优惠券自绑定之日起30日内有效，请在有效期内使用。</p>
+        </section>
+
+        <section class="coupon-rule-item">
+          <h3>过期处理：</h3>
+          <p>优惠券逾期将自动失效。因用户未在有效期内使用导致优惠券过期的，不予补发。</p>
+        </section>
+
+        <section class="coupon-rule-item">
+          <h3>其他限制：</h3>
+          <ol>
+            <li>优惠券不可找零；</li>
+            <li>不可转让、转赠他人使用；</li>
+            <li>不可用于代他人付款；</li>
+            <li>不可兑换其他权益；</li>
+            <li>不可兑换现金，不可提现。</li>
+          </ol>
+        </section>
+
+        <section class="coupon-rule-item">
+          <h3>其他说明：</h3>
+          <p>优惠券仅限符合活动规则的充电订单使用，具体使用情况以系统实际核销结果为准。</p>
+        </section>
+      </div>
     </section>
 
     <div class="list-heading">

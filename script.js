@@ -14,6 +14,17 @@
   var smsShareButton = document.getElementById("sms-share");
   var copyLinkButton = document.getElementById("copy-link");
   var shareStatus = document.getElementById("share-status");
+  var couponToggle = document.getElementById("coupon-toggle");
+  var couponRules = document.getElementById("coupon-rules");
+  var couponToggleText = document.getElementById("coupon-toggle-text");
+
+  function toggleCouponRules() {
+    var shouldExpand = couponRules.hidden;
+
+    couponRules.hidden = !shouldExpand;
+    couponToggle.setAttribute("aria-expanded", String(shouldExpand));
+    couponToggleText.textContent = shouldExpand ? "收起规则" : "查看规则";
+  }
 
   function isIOS(userAgent) {
     return /iPad|iPhone|iPod/i.test(userAgent || "");
@@ -205,4 +216,5 @@
   });
   smsShareButton.addEventListener("click", openSmsApp);
   copyLinkButton.addEventListener("click", copyNavigationLink);
+  couponToggle.addEventListener("click", toggleCouponRules);
 }());
