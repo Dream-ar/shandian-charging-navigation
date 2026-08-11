@@ -15,7 +15,12 @@
   }
 
   function isValidStation(station) {
-    return station && station.id && station.name && station.address && station.amapUrl;
+    return station && station.id && station.name && station.address
+      && (station.amapUrl || station.originalAmapUrl);
+  }
+
+  function getNavigationUrl(station) {
+    return station.amapUrl || station.originalAmapUrl;
   }
 
   function createTextElement(tagName, className, text) {
@@ -45,9 +50,8 @@
     topLine.className = "station-card__topline";
 
     link.className = "nav-button";
-    link.href = station.amapUrl;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
+    link.href = getNavigationUrl(station);
+    link.dataset.navigationSource = station.amapUrl ? "amap-uri" : "original-share";
     link.textContent = "高德导航";
     link.setAttribute("aria-label", "打开" + station.name + "的高德导航");
 
