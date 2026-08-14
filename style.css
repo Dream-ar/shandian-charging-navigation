@@ -112,7 +112,7 @@ input {
 .search-panel {
   position: relative;
   z-index: 2;
-  margin-top: -17px;
+  margin-top: 16px;
   padding: 16px;
   border: 1px solid rgba(220, 229, 234, 0.9);
   border-radius: 18px;
@@ -188,7 +188,9 @@ input {
 
 .coupon-panel {
   overflow: hidden;
-  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+  margin-top: -17px;
   border: 1px solid #cceade;
   border-radius: 16px;
   background: var(--surface);
@@ -240,10 +242,6 @@ input {
   vertical-align: -1px;
 }
 
-.coupon-summary[aria-expanded="true"] .coupon-summary__arrow {
-  transform: rotate(90deg);
-}
-
 .coupon-summary:active {
   background: #eaf8f1;
 }
@@ -251,6 +249,93 @@ input {
 .coupon-summary:focus-visible {
   outline: 3px solid rgba(24, 199, 122, 0.3);
   outline-offset: -3px;
+}
+
+.coupon-flow {
+  padding: 18px 14px 20px;
+  border-top: 1px solid #dcece5;
+  background: #f8fbfa;
+}
+
+.coupon-flow__heading {
+  margin-bottom: 14px;
+}
+
+.coupon-flow__eyebrow {
+  margin: 0 0 3px;
+  color: #087348;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.coupon-flow__heading h2 {
+  margin: 0;
+  color: var(--navy-900);
+  font-size: 19px;
+}
+
+.coupon-flow__steps {
+  display: grid;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.coupon-flow__step {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 11px;
+  padding: 12px;
+  border: 1px solid #dce8e3;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(7, 26, 43, 0.04);
+}
+
+.coupon-flow__step:not(:last-child)::after {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  color: var(--green-600);
+  content: "↓";
+  font-size: 18px;
+  font-weight: 850;
+  transform: translateX(-50%);
+}
+
+.coupon-flow__icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--navy-900);
+  background: var(--green-100);
+  font-size: 19px;
+  font-weight: 850;
+}
+
+.coupon-flow__step h3 {
+  margin: 0 0 3px;
+  color: var(--navy-900);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.coupon-flow__step p {
+  margin: 0;
+  color: #536570;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.coupon-flow__step strong {
+  color: #087348;
+  font-weight: 800;
 }
 
 .coupon-rules {
@@ -596,6 +681,49 @@ input {
 
   .nav-button {
     margin: 0 16px 16px;
+  }
+
+  .coupon-flow {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .coupon-flow__steps {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .coupon-flow__step {
+    display: block;
+    padding: 10px 9px 11px;
+  }
+
+  .coupon-flow__step:not(:last-child)::after {
+    top: 37px;
+    right: -9px;
+    bottom: auto;
+    left: auto;
+    z-index: 1;
+    padding: 0 2px;
+    background: #f8fbfa;
+    content: "›";
+    transform: none;
+  }
+
+  .coupon-flow__icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 8px;
+    font-size: 17px;
+  }
+
+  .coupon-flow__step h3 {
+    font-size: 13px;
+  }
+
+  .coupon-flow__step p {
+    font-size: 12px;
+    line-height: 1.55;
   }
 }
 

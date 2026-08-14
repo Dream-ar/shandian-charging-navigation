@@ -17,6 +17,7 @@
   var couponToggle = document.getElementById("coupon-toggle");
   var couponRules = document.getElementById("coupon-rules");
   var couponToggleText = document.getElementById("coupon-toggle-text");
+  var couponToggleArrow = document.getElementById("coupon-toggle-arrow");
 
   function toggleCouponRules() {
     var shouldExpand = couponRules.hidden;
@@ -24,6 +25,7 @@
     couponRules.hidden = !shouldExpand;
     couponToggle.setAttribute("aria-expanded", String(shouldExpand));
     couponToggleText.textContent = shouldExpand ? "收起规则" : "查看规则";
+    couponToggleArrow.textContent = shouldExpand ? "∧" : "›";
   }
 
   function isIOS(userAgent) {

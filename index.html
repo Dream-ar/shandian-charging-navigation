@@ -7,9 +7,9 @@
   <meta name="description" content="闪电快充天津充电站统一导航页">
   <meta name="format-detection" content="telephone=no">
   <title>闪电快充｜充电站导航</title>
-  <link rel="stylesheet" href="style.css?v=20260811-coupon">
+  <link rel="stylesheet" href="style.css?v=20260814-coupon-flow">
   <script src="stations.js" defer></script>
-  <script src="script.js?v=20260811-coupon" defer></script>
+  <script src="script.js?v=20260814-coupon-flow" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -24,23 +24,6 @@
   </header>
 
   <main class="main">
-    <section class="search-panel" aria-label="站点搜索">
-      <label class="search-label" for="station-search">搜索充电站</label>
-      <div class="search-box">
-        <span class="search-box__icon" aria-hidden="true"></span>
-        <input
-          id="station-search"
-          type="search"
-          inputmode="search"
-          enterkeyhint="search"
-          autocomplete="off"
-          placeholder="搜索站名、区域或地址"
-          aria-describedby="search-help station-count"
-        >
-      </div>
-      <p id="search-help" class="search-help">例如：西青、南站、友谊路</p>
-    </section>
-
     <section class="coupon-panel" aria-label="优惠券使用说明">
       <button
         id="coupon-toggle"
@@ -51,9 +34,61 @@
       >
         <span class="coupon-summary__icon" aria-hidden="true">🎟</span>
         <span class="coupon-summary__copy">
-          <strong>满10减5</strong><span aria-hidden="true">｜</span><strong>每天限用1次</strong><span aria-hidden="true">｜</span><strong>绑定后30天有效</strong><span aria-hidden="true">｜</span><span class="coupon-summary__action"><span id="coupon-toggle-text">查看规则</span> <span class="coupon-summary__arrow" aria-hidden="true">›</span></span>
+          <strong>满10减5</strong><span aria-hidden="true">｜</span><strong>每天最多5张</strong><span aria-hidden="true">｜</span><strong>绑定后30天有效</strong><span aria-hidden="true">｜</span><span class="coupon-summary__action"><span id="coupon-toggle-text">查看规则</span> <span id="coupon-toggle-arrow" class="coupon-summary__arrow" aria-hidden="true">›</span></span>
         </span>
       </button>
+
+      <section class="coupon-flow" aria-labelledby="coupon-flow-title">
+        <div class="coupon-flow__heading">
+          <p class="coupon-flow__eyebrow">领取到使用</p>
+          <h2 id="coupon-flow-title">优惠券领取及使用流程</h2>
+        </div>
+
+        <ol class="coupon-flow__steps" aria-label="优惠券领取及使用步骤">
+          <li class="coupon-flow__step">
+            <span class="coupon-flow__icon" aria-hidden="true">📱</span>
+            <div>
+              <h3>第1步｜进入小程序</h3>
+              <p>打开<strong>新电途小程序</strong>。</p>
+            </div>
+          </li>
+          <li class="coupon-flow__step">
+            <span class="coupon-flow__icon" aria-hidden="true">👤</span>
+            <div>
+              <h3>第2步｜进入“我的”</h3>
+              <p>点击右下角<strong>“我的”</strong>，进入个人中心。</p>
+            </div>
+          </li>
+          <li class="coupon-flow__step">
+            <span class="coupon-flow__icon" aria-hidden="true">🎟</span>
+            <div>
+              <h3>第3步｜领取优惠券</h3>
+              <p>点击<strong>“优惠券”</strong>，进入页面领取对应优惠券。</p>
+            </div>
+          </li>
+          <li class="coupon-flow__step">
+            <span class="coupon-flow__icon" aria-hidden="true">⚡</span>
+            <div>
+              <h3>第4步｜扫码充电</h3>
+              <p>到达闪电快充充电站后，正常扫码启动充电。</p>
+            </div>
+          </li>
+          <li class="coupon-flow__step">
+            <span class="coupon-flow__icon" aria-hidden="true">¥</span>
+            <div>
+              <h3>第5步｜支付使用</h3>
+              <p>充电结束后使用<strong>现金 + 优惠券</strong>结算，按“满10减5”规则抵扣。</p>
+            </div>
+          </li>
+          <li class="coupon-flow__step">
+            <span class="coupon-flow__icon" aria-hidden="true">✓</span>
+            <div>
+              <h3>完成｜结算离场</h3>
+              <p>支付完成后结算离场。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
 
       <div id="coupon-rules" class="coupon-rules" hidden>
         <h2>优惠券使用说明</h2>
@@ -70,7 +105,7 @@
 
         <section class="coupon-rule-item">
           <h3>使用限制：</h3>
-          <p>每笔订单限用1张优惠券，每位用户每天限用1次。</p>
+          <p>每笔订单限用1张优惠券，每位用户每天最多核销5张优惠券。</p>
         </section>
 
         <section class="coupon-rule-item">
@@ -96,9 +131,26 @@
 
         <section class="coupon-rule-item">
           <h3>其他说明：</h3>
-          <p>优惠券仅限符合活动规则的充电订单使用，具体使用情况以系统实际核销结果为准。</p>
+          <p>优惠券仅限符合活动规则的充电订单使用，具体使用及核销情况以系统实际结果为准。</p>
         </section>
       </div>
+    </section>
+
+    <section class="search-panel" aria-label="站点搜索">
+      <label class="search-label" for="station-search">搜索充电站</label>
+      <div class="search-box">
+        <span class="search-box__icon" aria-hidden="true"></span>
+        <input
+          id="station-search"
+          type="search"
+          inputmode="search"
+          enterkeyhint="search"
+          autocomplete="off"
+          placeholder="搜索站名、区域或地址"
+          aria-describedby="search-help station-count"
+        >
+      </div>
+      <p id="search-help" class="search-help">例如：西青、南站、友谊路</p>
     </section>
 
     <div class="list-heading">
