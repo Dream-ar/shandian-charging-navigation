@@ -689,8 +689,8 @@ input {
   }
 
   .coupon-flow__steps {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .coupon-flow__step {
