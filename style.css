@@ -333,9 +333,72 @@ input {
   line-height: 1.65;
 }
 
+.coupon-flow__points {
+  margin: 0;
+  padding-left: 1.25em;
+  color: #536570;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.coupon-flow__points li + li {
+  margin-top: 5px;
+}
+
 .coupon-flow__step strong {
   color: #087348;
   font-weight: 800;
+}
+
+.coupon-flow__path {
+  margin-top: 9px !important;
+  padding: 8px 9px;
+  border-radius: 9px;
+  color: #087348 !important;
+  background: var(--green-100);
+  font-weight: 800;
+}
+
+.coupon-flow__branches {
+  display: grid;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.coupon-flow__branch {
+  padding: 10px;
+  border: 1px solid #cfe6dc;
+  border-radius: 10px;
+  background: #f8fcfa;
+}
+
+.coupon-flow__branch h4 {
+  margin: 0 0 7px;
+  color: var(--navy-900);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.coupon-flow__branch h4 span {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--green-600);
+  font-size: 11px;
+}
+
+.coupon-flow__branch ol {
+  margin: 0;
+  padding-left: 1.35em;
+  color: #536570;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.coupon-flow__branch li + li {
+  margin-top: 3px;
 }
 
 .coupon-rules {
@@ -689,8 +752,8 @@ input {
   }
 
   .coupon-flow__steps {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .coupon-flow__step {
@@ -718,12 +781,17 @@ input {
   }
 
   .coupon-flow__step h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .coupon-flow__step p {
-    font-size: 12px;
-    line-height: 1.55;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .coupon-flow__points {
+    font-size: 13px;
+    line-height: 1.6;
   }
 }
 
