@@ -7,9 +7,9 @@
   <meta name="description" content="闪电快充天津充电站统一导航页">
   <meta name="format-detection" content="telephone=no">
   <title>闪电快充｜充电站导航</title>
-  <link rel="stylesheet" href="style.css?v=20260814-coupon-usage">
+  <link rel="stylesheet" href="style.css?v=20260814-coupon-accordion">
   <script src="stations.js" defer></script>
-  <script src="script.js?v=20260814-coupon-flow-v2" defer></script>
+  <script src="script.js?v=20260814-coupon-accordion" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -38,56 +38,84 @@
         </span>
       </button>
 
-      <section class="coupon-flow" aria-labelledby="coupon-flow-title">
-        <div class="coupon-flow__heading">
-          <p class="coupon-flow__eyebrow">登录到使用</p>
-          <h2 id="coupon-flow-title">优惠券查看及使用流程</h2>
-        </div>
+      <section class="coupon-guide" aria-labelledby="coupon-guide-title">
+        <h2 id="coupon-guide-title">优惠券操作指南</h2>
 
-        <ol class="coupon-flow__steps" aria-label="优惠券登录、查看及使用步骤">
-          <li class="coupon-flow__step">
-            <span class="coupon-flow__icon" aria-hidden="true">登</span>
-            <div>
-              <h3>第一步｜登录/注册账号</h3>
-              <ul class="coupon-flow__points">
-                <li>微信搜索并进入<strong>【新电途】小程序</strong>。</li>
-                <li>点击右下角<strong>【我的】</strong>，再点击顶部<strong>【点击登录】</strong>，按提示完成手机号授权或验证码登录。</li>
-              </ul>
+        <div class="coupon-guide__list">
+          <details class="coupon-guide__item">
+            <summary>
+              <span class="coupon-guide__number" aria-hidden="true">①</span>
+              <span class="coupon-guide__summary-copy">
+                <strong>登录/注册账号</strong>
+                <small>微信进入新电途，完成手机号登录</small>
+              </span>
+              <span class="coupon-guide__arrow" aria-hidden="true">›</span>
+            </summary>
+            <div class="coupon-guide__content">
+              <h3>登录/注册账号</h3>
+              <ol>
+                <li>打开微信，搜索并进入【新电途】小程序。</li>
+                <li>点击右下角【我的】。</li>
+                <li>点击页面顶部【点击登录】。</li>
+                <li>按提示完成手机号授权或验证码登录。</li>
+              </ol>
             </div>
-          </li>
-          <li class="coupon-flow__step">
-            <span class="coupon-flow__icon" aria-hidden="true">券</span>
-            <div>
-              <h3>第二步｜查看优惠券</h3>
-              <p>优惠券将直接发放至用户登录手机号对应的账户。</p>
-              <p class="coupon-flow__path">【新电途小程序 → 我的 → 优惠券】</p>
+          </details>
+
+          <details class="coupon-guide__item">
+            <summary>
+              <span class="coupon-guide__number" aria-hidden="true">②</span>
+              <span class="coupon-guide__summary-copy">
+                <strong>查看优惠券</strong>
+                <small>我的 → 优惠券</small>
+              </span>
+              <span class="coupon-guide__arrow" aria-hidden="true">›</span>
+            </summary>
+            <div class="coupon-guide__content">
+              <h3>查看优惠券</h3>
+              <p>优惠券将直接发放至用户登录手机号对应账户。</p>
+              <p class="coupon-guide__label">查看路径：</p>
+              <p class="coupon-guide__path">新电途小程序 → 我的 → 优惠券</p>
             </div>
-          </li>
-          <li class="coupon-flow__step coupon-flow__step--use">
-            <span class="coupon-flow__icon" aria-hidden="true">用</span>
-            <div>
-              <h3>第三步｜使用优惠券（二选一）</h3>
-              <div class="coupon-flow__branches">
-                <section class="coupon-flow__branch" aria-labelledby="coupon-method-one">
-                  <h4 id="coupon-method-one"><span>方式一</span> 从优惠券进入</h4>
-                  <ol>
-                    <li>【优惠券】→【去使用】</li>
-                    <li>选择指定场站并启动充电</li>
-                    <li>充电结束后，结算时勾选优惠券抵扣</li>
-                  </ol>
-                </section>
-                <section class="coupon-flow__branch" aria-labelledby="coupon-method-two">
-                  <h4 id="coupon-method-two"><span>方式二</span> 从场站进入</h4>
-                  <ol>
-                    <li>搜索指定场站</li>
-                    <li>到场扫码启动充电</li>
-                    <li>充电结束后，结算时勾选优惠券抵扣</li>
-                  </ol>
-                </section>
-              </div>
+          </details>
+
+          <details class="coupon-guide__item">
+            <summary>
+              <span class="coupon-guide__number" aria-hidden="true">③</span>
+              <span class="coupon-guide__summary-copy">
+                <strong>使用优惠券</strong>
+                <small>支持两种使用方式</small>
+              </span>
+              <span class="coupon-guide__arrow" aria-hidden="true">›</span>
+            </summary>
+            <div class="coupon-guide__content">
+              <h3>使用优惠券（二选一）</h3>
+
+              <section class="coupon-guide__method" aria-labelledby="coupon-method-one">
+                <h4 id="coupon-method-one">方式一｜从优惠券进入</h4>
+                <p>【优惠券】 → 【去使用】 → 选择指定场站 → 到站扫码启动充电 → 充电结束后勾选优惠券抵扣。</p>
+              </section>
+
+              <section class="coupon-guide__method" aria-labelledby="coupon-method-two">
+                <h4 id="coupon-method-two">方式二｜直接到场站</h4>
+                <p>搜索指定场站 → 到达场站 → 扫码启动充电 → 充电结束后勾选优惠券抵扣。</p>
+              </section>
+
+              <p class="coupon-guide__scan-note">请扫描充电桩上的“智汇充”二维码启动充电。</p>
+
+              <details class="coupon-guide__demo">
+                <summary>
+                  <span>查看现场扫码示意</span>
+                  <span class="coupon-guide__demo-arrow" aria-hidden="true">›</span>
+                </summary>
+                <figure>
+                  <img src="assets/智汇充二维码牌示意图.png" alt="智汇充二维码牌现场扫码示意" width="820" height="870" loading="lazy" decoding="async">
+                  <figcaption>图片仅为示意，请以现场充电设备实际张贴的“智汇充”二维码为准。</figcaption>
+                </figure>
+              </details>
             </div>
-          </li>
-        </ol>
+          </details>
+        </div>
       </section>
 
       <div id="coupon-rules" class="coupon-rules" hidden>
