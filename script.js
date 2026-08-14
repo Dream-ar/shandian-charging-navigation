@@ -18,6 +18,9 @@
   var couponRules = document.getElementById("coupon-rules");
   var couponToggleText = document.getElementById("coupon-toggle-text");
   var couponToggleArrow = document.getElementById("coupon-toggle-arrow");
+  var couponGuideItems = Array.prototype.slice.call(
+    document.querySelectorAll(".coupon-guide__item")
+  );
 
   function toggleCouponRules() {
     var shouldExpand = couponRules.hidden;
@@ -26,6 +29,18 @@
     couponToggle.setAttribute("aria-expanded", String(shouldExpand));
     couponToggleText.textContent = shouldExpand ? "收起规则" : "查看规则";
     couponToggleArrow.textContent = shouldExpand ? "∧" : "›";
+  }
+
+  function closeOtherCouponGuideItems(currentItem) {
+    if (!currentItem.open) {
+      return;
+    }
+
+    couponGuideItems.forEach(function (item) {
+      if (item !== currentItem) {
+        item.open = false;
+      }
+    });
   }
 
   function isIOS(userAgent) {
@@ -219,4 +234,9 @@
   smsShareButton.addEventListener("click", openSmsApp);
   copyLinkButton.addEventListener("click", copyNavigationLink);
   couponToggle.addEventListener("click", toggleCouponRules);
+  couponGuideItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      closeOtherCouponGuideItems(item);
+    });
+  });
 }());
